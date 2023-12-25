@@ -1,0 +1,12 @@
+version: '3.7'
+name: ecommerce-batch-december2023
+services:
+  web:
+    container_name: vue-ecommerce
+    build:
+      context: ..
+      dockerfile: docker/DockerFile
+    ports:
+    - '8085:8080'
+    volumes:
+    - '..:/app'
