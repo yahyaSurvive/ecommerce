@@ -86,29 +86,6 @@ export default {
     };
   },
   methods: {
-    async getProduct(id) {
-      try {
-        this.showFullText = false;
-        this.isLoadData = true;
-
-        if (id > 20) {
-          id = 1;
-          this.idProduct = 1;
-        }
-
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-        const data = await response.json();
-
-        // set product
-        this.setProduct(data);
-
-        this.idProduct++;
-      } catch (error) {
-        console.log("Tidak ada data!");
-      }finally{
-        this.isLoadData = false;
-      }
-    },
     setProduct(data) {
       data.rating.remain = Math.round(data.rating.rate);
 
@@ -125,7 +102,29 @@ export default {
         data.style = "unavailable";
         this.product = data;
       }
+    },
+    async getProduct(id) {
+      try {
+        this.showFullText = false;
+        this.isLoadData = true;
 
+        if (id > 20) {
+          id = 1;
+          this.idProduct = 1;
+        }
+
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const data = await response.json();
+        
+        // set product
+        this.setProduct(data);
+
+        this.idProduct++;
+      } catch (error) {
+        console.log("Tidak ada data!");
+      }finally{
+        this.isLoadData = false;
+      }
     },
     toggleText() {
       this.showFullText = !this.showFullText;
