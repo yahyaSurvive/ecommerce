@@ -1,4 +1,4 @@
-FROM node
+FROM node:18
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN npm i --legacy-peer-deps
 
 COPY . .
 
-CMD [ "npm", "run", "serve" ]
+ENTRYPOINT [ "npm", "run", "serve" ]

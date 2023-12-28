@@ -4,10 +4,6 @@ on:
   push:
   workflow_dispatch:
 
-# env:
-#   REGISTRY: ghcr.io
-#   IMAGE_NAME: notification-page
-
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -16,10 +12,10 @@ jobs:
     - uses: actions/checkout@v3
       name: Check out code
 
-    - uses: mr-smithers-excellent/docker-build-push@v6
+    - uses: mr-smithers-excellent/docker-build-push@vlatest
       name: Build & push Docker image
       with:
-        image: yhydev/ecommerce
+        image: yhydev/ecommerce-catalog
         tags: latest
         registry: docker.io
         dockerfile: docker/DockerFile

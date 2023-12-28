@@ -2,7 +2,7 @@ version: '3.7'
 name: ecommerce-batch-december2023
 services:
   web:
-    container_name: vue-ecommerce
+    container_name: ecommerce-catalog
     build:
       context: ..
       dockerfile: docker/DockerFile
