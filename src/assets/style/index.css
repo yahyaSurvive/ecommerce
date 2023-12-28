@@ -37,7 +37,6 @@
 
 p.fs-18{
   font-size: 32px;
-  text-align: center;
   font-weight: 600;
   color: var(--text-color);
 }
@@ -70,6 +69,11 @@ p.fs-18{
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
+  /* height: max-content; */
+}
+
+.container-responsive{
   height: 100%;
 }
 
@@ -316,11 +320,22 @@ p.fs-18{
 /* Mode Tablet */
 
 @media only screen and (max-width: 1025px) {
+
+  .container-responsive{
+    height: max-content;
+    margin-top: 5%;
+    margin-bottom: 20px;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 95vh;
+    height: max-content;
+  }
+
+  .card-unavailable{
+    height: 85vh;
   }
 
   .card-image {
@@ -377,11 +392,21 @@ p.fs-18{
 
 /* Mobile mode */
 @media only screen and (max-width: 600px) {
+  .container-responsive{
+    height: max-content;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 95vh;
+    height: max-content;
+  }
+
+  .card-unavailable{
+    height: 85vh;
   }
 
   .card-image {
@@ -420,6 +445,8 @@ p.fs-18{
 
   .on-show-more {
     height: auto;
+    /* margin-top: 220px; */
+    /* margin-bottom: 80px; */
   }
 
   .bubble-range {

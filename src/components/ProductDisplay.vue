@@ -11,7 +11,7 @@
     </div>
 
     <!-- catalog product -->
-    <div v-show="!isUnavailable" class="container">
+    <div v-show="!isUnavailable" :class="{'container' : true, 'container-responsive': showFullText}">
       <div :class="{ 'on-show-more': showFullText, 'card': true }">
         <p class="category-top-right" style="">{{ product.category }}</p>
         <div class="card-image">
@@ -60,7 +60,7 @@
 
     <!-- unavailable product -->
     <div v-show="isUnavailable" class="container">
-      <div class="card">
+      <div :class="{'card':true, 'card-unavailable':isUnavailable}">
 
         <div class="wrapper-image-unavailable">
           <img class="unavailable-image" src="../../public/images/bg-sad-unavailable.svg" alt="unavailable product">
@@ -88,6 +88,7 @@ export default {
   methods: {
     async getProduct(id) {
       try {
+        this.showFullText = false;
         this.isLoadData = true;
 
         if (id > 20) {
